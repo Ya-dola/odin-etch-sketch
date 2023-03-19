@@ -49,6 +49,30 @@ button:hover {
     transform: scale(1.16);
 }
 
+input[type='color']:active {
+    transition: transform 0.05s ease-in-out;
+    transform: scale(1);
+}
+
+input[type='color'] {
+    -webkit-appearance: none;
+    width: 60px;
+    height: 60px;
+    border: none;
+    background-color: var(--dark-1);
+}
+
+input[type='color']::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type='color']::-webkit-color-swatch {
+    border: none;
+    border-radius: 50px;
+    box-shadow: rgba(245, 245, 245, 0.4) 0 1px 6px 2px;
+}
+
+
 input[type='range'] {
     -webkit-appearance: none;
     background-color: var(--dark-2);
@@ -89,8 +113,8 @@ input[type='range']::-webkit-slider-thumb:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 60px;
-    padding: 0 40px;
+    gap: 48px;
+    padding: 0 60px;
     font-size: var(--size-info);
 }
 
@@ -113,7 +137,15 @@ input[type='range']::-webkit-slider-thumb:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 24px;
+}
+
+.config .options .colourSel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
 }
 
 button.active {
@@ -133,8 +165,8 @@ button.active {
 
 .grid {
     display: grid;
-    min-width: 760px;
-    min-height: 760px;
+    min-width: 740px;
+    min-height: 740px;
     background-color: var(--light-1);
     box-shadow: rgba(245, 245, 245, 0.4) 0 1px 6px 2px
 }

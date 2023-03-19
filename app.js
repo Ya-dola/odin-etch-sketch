@@ -17,7 +17,8 @@ const DEFAULT_GRID_SIZE = 16;
 
 // Page Elements
 const grid = document.getElementById('grid');
-const btnDefault = document.getElementById('btnDefault');
+const pickerColour = document.getElementById('pickerColour');
+const btnColour = document.getElementById('btnColour');
 const btnRainbow = document.getElementById('btnRainbow');
 const btnEraser = document.getElementById('btnEraser');
 const btnReset = document.getElementById('btnReset');
@@ -89,7 +90,7 @@ function deactivateActiveButton() {
             btnEraser.classList.toggle('active');
             break;
         default:
-            btnDefault.classList.toggle('active');
+            btnColour.classList.toggle('active');
             break;
     }
 }
@@ -103,7 +104,7 @@ function setActiveButton(mode) {
             btnEraser.classList.toggle('active');
             break;
         default:
-            btnDefault.classList.toggle('active');
+            btnColour.classList.toggle('active');
             break;
     }
 }
@@ -111,15 +112,18 @@ function setActiveButton(mode) {
 function setColour(mode) {
     switch (mode) {
         case MODE.RAINBOW:
-            selectedColour = '';
             break;
         case MODE.ERASER:
             selectedColour = COLOUR.ERASER;
             break;
         default:
-            selectedColour = COLOUR.DEFAULT;
+            selectedColour = pickerColour.value;
             break;
     }
+}
+
+function changeSelectedColour(colour) {
+    selectedColour = colour;
 }
 
 function resetGrid() {
@@ -149,7 +153,10 @@ sliderSize.addEventListener('mousemove', (evt) => {
 sliderSize.addEventListener('change', (evt) => {
     changeSize(evt.target.value);
 });
-btnDefault.addEventListener('click', () => {
+pickerColour.addEventListener('input', (evt) => {
+    changeSelectedColour(evt.target.value);
+});
+btnColour.addEventListener('click', () => {
     setMode(MODE.DEFAULT);
 });
 btnRainbow.addEventListener('click', () => {
