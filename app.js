@@ -29,6 +29,7 @@ const sliderSize = document.getElementById('sliderSize');
 let colour = DEFAULT_COLOUR;
 let mode = DEFAULT_MODE;
 let gridSize = DEFAULT_GRID_SIZE;
+let mousePressed = false;
 
 // Main Execution
 defaultSetup();
@@ -53,12 +54,19 @@ function populateGrid(gridSize) {
 function createGridElement() {
     const gridElement = document.createElement('div');
     gridElement.classList.toggle('gridElement');
+    gridElement.addEventListener('mouseover', colourElement);
+
+    // To Ensure the starting element being pressed is coloured before dragging around
     gridElement.addEventListener('mousedown', colourElement);
     return gridElement;
 }
 
-function colourElement() {
-
+function colourElement(evt) {
+    // If only hovering but not Pressing = DO NOTHING
+    if (evt.type === 'mouseover' && !mousePressed) return;
+    evt.target.style.backgroundColor = colour;
 }
 
 // Event Listeners
+document.body.onmousedown = () => (mousePressed = true);
+document.body.onmouseup = () => (mousePressed = false);
