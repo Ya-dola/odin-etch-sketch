@@ -121,6 +121,11 @@ function setColour(mode) {
     }
 }
 
+function resetGrid() {
+    grid.innerHTML = '';
+    populateGrid(gridSize);
+}
+
 // Event Listeners
 document.body.onmousedown = () => (mousePressed = true);
 document.body.onmouseup = () => (mousePressed = false);
@@ -134,3 +139,4 @@ btnRainbow.addEventListener('click', () => {
 btnEraser.addEventListener('click', () => {
     setMode(MODE.ERASER);
 });
+btnReset.addEventListener('click', resetGrid);
