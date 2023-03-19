@@ -35,6 +35,7 @@ defaultSetup();
 
 // Functions
 function defaultSetup() {
+    updateSizeTxt(DEFAULT_GRID_SIZE);
     populateGrid(DEFAULT_GRID_SIZE);
     setMode(DEFAULT_MODE);
 }
@@ -126,10 +127,28 @@ function resetGrid() {
     populateGrid(gridSize);
 }
 
+function updateSizeTxt(size) {
+    txtSize.textContent = `${size} x ${size}`;
+}
+
+function changeSize(size) {
+    updateSizeTxt(size);
+    gridSize = size;
+
+    // Reset the grid to the new grid size
+    resetGrid(gridSize);
+}
+
 // Event Listeners
 document.body.onmousedown = () => (mousePressed = true);
 document.body.onmouseup = () => (mousePressed = false);
 
+sliderSize.addEventListener('mousemove', (evt) => {
+    updateSizeTxt(evt.target.value);
+});
+sliderSize.addEventListener('change', (evt) => {
+    changeSize(evt.target.value);
+});
 btnDefault.addEventListener('click', () => {
     setMode(MODE.DEFAULT);
 });
