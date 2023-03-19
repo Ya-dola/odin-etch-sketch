@@ -1,7 +1,7 @@
 :root {
     --dark-1: #1f1f1f;
     --dark-2: #444;
-    --dark-3: rgba(148, 148, 148, 0.6);
+    --dark-3: rgba(176, 176, 176, 0.4);
     --light-1: #eaeaea;
     --light-2: #fefefe;
     --size-heading: 80px;
@@ -53,6 +53,7 @@ input[type='range'] {
     -webkit-appearance: none;
     background-color: var(--dark-2);
     min-width: 100%;
+    cursor: pointer;
 }
 
 input[type='range']::-webkit-slider-runnable-track {
@@ -130,7 +131,7 @@ button.active {
     min-width: 760px;
     min-height: 760px;
     background-color: var(--light-1);
-    box-shadow: rgba(245, 245, 245, 0.4) 0 0 6px 2px
+    box-shadow: rgba(245, 245, 245, 0.4) 0 1px 6px 2px
 }
 
 .gridElement {
