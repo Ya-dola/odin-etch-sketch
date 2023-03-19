@@ -1,9 +1,11 @@
 :root {
-    --primary-dark: #1f1f1f;
-    --secondary-dark: #313131;
-    --primary-light: #ededed;
-    --secondary-light: #fefefe;
+    --dark-1: #1f1f1f;
+    --dark-2: #444;
+    --light-1: #ededed;
+    --light-2: #fefefe;
     --size-heading: 80px;
+    --size-button: 20px;
+    --size-info: 22px;
 }
 
 *,
@@ -24,18 +26,42 @@ body {
     align-items: stretch;
     gap: 20px;
     padding: 20px 0;
-    background: var(--primary-dark);
-    color: var(--primary-light);
+    background: var(--dark-1);
+    color: var(--light-1);
     font-family: Lato, sans-serif;
 }
 
 button {
-    border: none;
-    /*color: inherit;*/
     font-family: inherit;
-    font-size: inherit;
+    font-size: var(--size-button);
     cursor: pointer;
     outline: none;
+    padding: 10px 20px;
+    border: 1px solid var(--light-1);
+    border-radius: 6px;
+    background-color: var(--dark-2);
+    color: var(--light-1);
+}
+
+input[type='range'] {
+    -webkit-appearance: none;
+    background-color: var(--dark-2);
+}
+
+input[type='range']::-webkit-slider-runnable-track {
+    height: 10px;
+    border: 1px solid var(--light-1);
+    border-radius: 25px;
+    background: var(--dark-1);
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 25px;
+    margin-top: -8px;
+    background: var(--light-2);
 }
 
 /*Classes*/
@@ -46,7 +72,58 @@ button {
     font-size: var(--size-heading);
 }
 
+.config {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    padding: 0 40px;
+}
+
+.config .gridInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: var(--size-info);
+}
+
+.config .gridSize {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-size: var(--size-info);
+}
+
+.config .options {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+button.active {
+    background-color: var(--light-2);
+    color: var(--dark-2);
+}
+
+.gridContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.grid {
+    display: grid;
+    min-width: 760px;
+    min-height: 760px;
+    background-color: var(--light-1);
+    box-shadow: rgba(245, 245, 245, 0.4) 0 0 6px 2px
+}
+
 .footer {
     display: flex;
     justify-content: center;
+    padding: 10px;
 }
