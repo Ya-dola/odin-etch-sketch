@@ -1,0 +1,52 @@
+:root {
+    --primary-dark: #1f1f1f;
+    --secondary-dark: #313131;
+    --primary-light: #ededed;
+    --secondary-light: #fefefe;
+    --size-heading: 80px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+/*Elements*/
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 20px;
+    padding: 20px 0;
+    background: var(--primary-dark);
+    color: var(--primary-light);
+    font-family: Lato, sans-serif;
+}
+
+button {
+    border: none;
+    /*color: inherit;*/
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+/*Classes*/
+
+.heading {
+    display: flex;
+    justify-content: center;
+    font-size: var(--size-heading);
+}
+
+.footer {
+    display: flex;
+    justify-content: center;
+}
